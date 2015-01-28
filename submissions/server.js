@@ -8,23 +8,23 @@ var root = __dirname;
 
 var server = http.createServer(function (req, res) {
     if(req.url == '/') {
-    switch(req.method) {
-        case 'GET':
-            req.url = '/index.html';
-        break;
-        case 'POST':
-            var item = '';
-            req.setEncoding('utf8');
-            req.on('data', function(chunk){
-                item += chunk;
-            });
-            req.on('end', function(){
-                var obj = qs.parse(item);
-                res.end('The item: "' + obj.item + '" was added successfully');
-            });
-        break;
+        switch(req.method) {
+            case 'GET':
+                req.url = '/index.html';
+            break;
+            case 'POST':
+                var item = '';
+                req.setEncoding('utf8');
+                req.on('data', function(chunk){
+                    item += chunk;
+                });
+                req.on('end', function(){
+                    var obj = qs.parse(item);
+                    res.end('The item: "' + obj.item + '" was added successfully');
+                });
+            break;
+        }
     }
-}
 
     var url = parse(req.url);
     var path = join(root, url.pathname);
@@ -33,13 +33,11 @@ var server = http.createServer(function (req, res) {
             if (err.code == 'ENOENT') {
                 res.statusCode = 404;
                 res.end('File Not Found');
-            }
-            else {
+            } else {
                 res.statusCode = 500;
                 res.end('Internal Server Error');
             }
-        }
-        else {
+        } else {
             var stream = fs.createReadStream(path);
             //res.setHeader('Content-Length', stat.size);
             stream.pipe(res);
