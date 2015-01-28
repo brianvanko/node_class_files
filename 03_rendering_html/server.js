@@ -1,7 +1,7 @@
 var express = require('express');
+var exphbs = require('express-handlebars');
 var app = express();
 var port = process.env.PORT || 9000;
-var exphbs = require('express-handlebars');
 
 app.engine('hbs', exphbs({extname: 'hbs', defaultLayout: 'main.hbs'}));
 app.set('view engine', 'hbs');
@@ -16,5 +16,6 @@ app.get('/:name', function (req, res) {
 	res.render('greeting', { title: 'Simple Greeting App', name: req.params.name })
 })
 
-app.listen(port);
-console.log('listening on port ' + port)
+app.listen(port, function (err) {
+	console.log('listening on port ', port);
+});
