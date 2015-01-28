@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Tip Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Tip Calculator</h1>
+  		<p>Let me calculate that for you.</p>
+  		<div class="panel panel-default" id='outputContainer'>
+		  <div class="panel-body" id='output'>
+		  </div>
+		</div>
+		<form action="javascript:calculateCosts();">
+			<div class='form-group'>
+				<label for="baseCost">How much was your meal:</label>
+				<input type="float" class="form-control" id="baseCost" placeholder="Enter meal cost">
+			</div>
+			<div class='form-group'>
+				<label for="taxPercent">What is the tax percentage:</label>
+				<input type="float" class="form-control" id="taxPercent" placeholder="Enter the tax percentage">
+			</div>
+			<div class='form-group'>
+				<label for="tipPercent">What percentage would you like to tip:</label>
+				<input type="float" class="form-control" id="tipPercent" placeholder="Enter the tip percentage">
+			</div>
+			<br>
+			<button class='btn btn-primary btn-lg col-xs-4 col-xs-offset-4'>Submit</button> 
+		</form>
+	</div>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
+
+
