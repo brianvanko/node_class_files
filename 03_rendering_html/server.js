@@ -16,6 +16,6 @@ app.get('/:name', function (req, res) {
 	res.render('greeting', { title: 'Simple Greeting App', name: req.params.name })
 })
 
-app.listen(port, function (err) {
+app.listen(port, function () {
 	console.log('listening on port ', port);
 });
